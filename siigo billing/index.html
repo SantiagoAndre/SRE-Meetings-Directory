@@ -1,0 +1,1048 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Siigo Costs - SRE Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#siigo-costs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SRE Docs" class="md-header__button md-logo" aria-label="SRE Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SRE Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Siigo Costs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SRE Docs" class="md-nav__button md-logo" aria-label="SRE Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    SRE Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Directorio de grabaciones de SRE
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datadog/" class="md-nav__link">
+        Datadog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../harness/" class="md-nav__link">
+        Harness
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Siigo Costs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Siigo Costs
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-de-arquitectura" class="md-nav__link">
+    Diagrama de arquitectura
+  </a>
+  
+    <nav class="md-nav" aria-label="Diagrama de arquitectura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#siigo-resources-management" class="md-nav__link">
+    Siigo Resources Management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siigo-costs-processor" class="md-nav__link">
+    Siigo Costs Processor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siigo-costs-api" class="md-nav__link">
+    Siigo Costs API
+  </a>
+  
+    <nav class="md-nav" aria-label="Siigo Costs API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-una-peticion-con-curl" class="md-nav__link">
+    Ejemplo de una petición con curl.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-del-api-desde-la-documentacion" class="md-nav__link">
+    Uso del API desde la Documentacion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Labs kubernetes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Labs kubernetes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Labs kubernetes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs_kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs_kubernetes/labs1/" class="md-nav__link">
+        Load Balancer y una API Flask
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs_kubernetes/labs2/" class="md-nav__link">
+        Compartir archivos entre  dos containers en un Pod
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs_kubernetes/labs3/" class="md-nav__link">
+        Ping desde entre dos containers de un mismo POD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs_kubernetes/labs4/" class="md-nav__link">
+        Comunicacion de dos PODS con un service NodePort
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs_kubernetes/labs5/" class="md-nav__link">
+        Docker Coins en Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs_kubernetes/labs6/" class="md-nav__link">
+        Azure Kubernetes Service
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Sre tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sre tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Sre tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sre_tools/rg_massive_tags/" class="md-nav__link">
+        AZURE MASSIVE TAGGING CLI TOOL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Terraform
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Terraform" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Terraform
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform/" class="md-nav__link">
+        Terraform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" type="checkbox" id="__nav_8_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_2">
+          Gitflow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gitflow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_2">
+          <span class="md-nav__icon md-icon"></span>
+          Gitflow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform/gitflow/" class="md-nav__link">
+        Git Flow para los repos de Terraform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform/gitflow/gitflow-iac/" class="md-nav__link">
+        Git Flow en el repo de IaC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform/gitflow/gitflow-infraestructure-modules/" class="md-nav__link">
+        Git Flow en el repo de Infraestrucure Modules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-de-arquitectura" class="md-nav__link">
+    Diagrama de arquitectura
+  </a>
+  
+    <nav class="md-nav" aria-label="Diagrama de arquitectura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#siigo-resources-management" class="md-nav__link">
+    Siigo Resources Management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siigo-costs-processor" class="md-nav__link">
+    Siigo Costs Processor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siigo-costs-api" class="md-nav__link">
+    Siigo Costs API
+  </a>
+  
+    <nav class="md-nav" aria-label="Siigo Costs API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-una-peticion-con-curl" class="md-nav__link">
+    Ejemplo de una petición con curl.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-del-api-desde-la-documentacion" class="md-nav__link">
+    Uso del API desde la Documentacion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="siigo-costs">Siigo Costs<a class="headerlink" href="#siigo-costs" title="Permanent link">&para;</a></h1>
+<p>La aplicación tiene el objetivo de procesar  y guardar los costos de infraestructura de <code>Siigo SAS</code>, de los diferentes clouds <code>azure</code>, <code>aws</code>, <code>oracle</code>,  por medio de diferentes providers como <code>rocket</code>, <code>azure costs management</code>, <code>aws cost</code>, para poder  generar métricas, indicadores, reportes, donde se puedan ejecutar análisis y de forma oportuna poder  responder preguntas como:</p>
+<ul>
+<li>Donde y porque se incrementaron los costos este mes.</li>
+<li>Determinar que parte del incremento de costos es de nueva infra y de infra existente.</li>
+<li>Es el día 7, 15, etc. del mes y quiero saber cuales son los recursos que incrementaron sus costos lo que lleva del mes.</li>
+<li>Cuál será el costo de x recursos el mes que viene(Predicciones avanzadas).</li>
+<li>Cuál es el costo exacto de la nueva infraestructura desplegada este mes.</li>
+<li>Llevar un histórico de los costos también es algo muy valioso, ya que con esto podremos ver como cambian los costos  de un recurso, grupo de recursos  a lo
+largo del tiempo.</li>
+<li>Cuál es el descuento exacto que aplicó Rocket para cada tipo de recurso el mes que pasó.</li>
+</ul>
+<h2 id="diagrama-de-arquitectura">Diagrama de arquitectura<a class="headerlink" href="#diagrama-de-arquitectura" title="Permanent link">&para;</a></h2>
+<!-- ![diagrama arquitectura](./img/siigocosts/design_siigo_costs.png) -->
+<!--  -->
+<p><img alt="diagrama arquitectura" src="../img/siigocosts/C4-Level1%20.png" /></p>
+<p>La aplicación se compone de 3 componentes principales:</p>
+<ul>
+<li>
+<p><strong>Siigo Resources Management</strong>: Tiene como objetivo bajar los recursos que están desplegados en los diferentes clouds(en este momento solo azure), ya que en los informes de costos se quiere obtener la información de cada recurso(tipo, región, sku, etc.) como también los  tags(owner, tribu, product, solution).</p>
+</li>
+<li>
+<p><strong>Siigo Cost Processor</strong>: Tiene como objetivo bajar los costos de infraestructura de  los recursos que están desplegados en los diferentes clouds, por medio de diferentes providers, como <code>Rocket</code>, <code>Azure Cost Management</code>, <code>AWS Costs</code>, para luego procesarlos, agruparlos y relacionarlos a los recursos que están guardados en la base de datos. El objetivo es bajar los costos en intervalos establecidos teniendo en cuenta las restricciones de cada proveedor, por ejemplo: cada mes, cada semana, cada 15 días.</p>
+</li>
+<li>
+<p><strong>Siigo Cost API</strong>: Es un API enfocada 100% a consultas sobre la info en la db, tiene como objetivo generar diferentes informes de costos, por suscripción, grupo de recursos, recursos, providers, etc, como también de recursos, en <code>excel</code> o <code>json</code>.</p>
+</li>
+<li>
+<p><strong>POWER BI</strong>: Esta tecnología externa nos ayudará a analizar la información de una forma más sencilla, con gráficos, consultas complejas etc, power bi tiene las opciones de obtener datos de un API o una db, en este caso MongoDB.</p>
+</li>
+</ul>
+<h3 id="siigo-resources-management">Siigo Resources Management<a class="headerlink" href="#siigo-resources-management" title="Permanent link">&para;</a></h3>
+<p><img alt="diagrama arquitectura" src="../img/siigocosts/C2Resources%20Management.png" /></p>
+<p>Por el momento este componente solo baja <strong>NUEVOS RECURSOS</strong>, más adelante podría ser capaz de  determinar si un recurso ha sido <strong>ELIMINADO</strong> o <strong>ACTUALIZADO</strong>, y reflejarlo en la db.</p>
+<ul>
+<li><strong>Id Factory</strong>: Este componente tiene el objetivo de generar id aleatorios para cada nuevo recurso o grupo de recursos o sub</li>
+</ul>
+<!-- , en un principio se pensaba generar un tag `_id`, en azure para que este se identificará a través de este tag. -->
+
+<ul>
+<li>
+<p><strong>Subscription Fetcher</strong>: Este componente tiene el objetivo de consultar las suscripciones de azure a través del api, procesarlas y retornarlas en formato json.</p>
+</li>
+<li>
+<p><strong>Resource Groups  Fetcher</strong>: Este componente tiene el objetivo de consultar los recursos de azure a través del api, procesarlos y retornarlas en formato json.</p>
+</li>
+<li>
+<p><strong>Resources Fetcher</strong>: Este componente tiene el objetivo de consultar los recursos  de azure a través del api, procesarlos y retornarlas en formato json.</p>
+</li>
+<li>
+<p><strong>Resources From Costs  Fetcher</strong>: Este componente existe debido a que no es posible obtener todos los recursos que existieron en un mes  con los tres componentes anteriores, ya que el API <code>Azure Resource Management</code> de azure solo retorna los que existen en el momento que se hace la petición. Este componente extrae todos los recursos y grupos  de recursos no existentes en la db que vienen en la respuesta de <code>Azure Cost Management</code> los procesa y retorna en en formato json.<br/>
+Cabe aclarar que  usando lógica difusa se determina cual es el <code>Service Name</code> para cada recurso, ya que en la respuesta de costos para un mismo recurso normalmente vienen registros con diferentes  <code>Services Names</code>(Un problema de ambigüedad). Este proceso se pudo validar en una PoC comparando los resultados con el portal de <code>Azure</code> y se encontró que funciona correctamente para un grupo mediano de datos.</p>
+</li>
+<li><strong>Azure Fetcher  Main</strong>: Este componente tiene el objetivo de llamar a los diferentes fetchers y posteriormente guardar la información en la base de datos.</li>
+</ul>
+<h3 id="siigo-costs-processor">Siigo Costs Processor<a class="headerlink" href="#siigo-costs-processor" title="Permanent link">&para;</a></h3>
+<p><img alt="diagrama arquitectura" src="../img/siigocosts/C2CostsProcessor.png" /></p>
+<p>Este es un diseño simplificado de este módulo, este componente consulta en este momento información de costos directamente de <code>Azure</code> y de <code>Rocket</code>, los procesa y guarda en la base de datos.</p>
+<ul>
+<li>
+<p><strong>Rocket Cost API</strong>: Este componente se comunica con el API de Rocket y consulta los costos por recurso de una <code>Suscripción</code> y <code>Periodo</code> determinado Ej: <code>2022-02</code>,<code>2022-03</code>. Finalmente retorna los costos en formato <code>JSON</code>.<br/>
+<strong>Nota:</strong> Los costos solo se pueden consultar con períodos pasados, y no hay forma de consultar en otros periodos de tiempo.</p>
+</li>
+<li>
+<p><strong>Azure Cost API</strong>:
+Este componente se comunica con el API de <code>Azure Cost Management</code> y consulta los costos por recurso en un intervalo de tiempo. Por ejemplo:   desde <code>2022-07-1</code> hasta <code>2022-07-15</code>. Finalmente se retornan los costos en formato <code>JSON</code>. <br/>
+<strong>Notas:</strong></p>
+<ul>
+<li><em>En <code>Azure Cost Management</code> se pueden consultar los costos en cualquier intervalo de tiempo en el pasado, es decir puedo hacer consultas en intervalos como: [<code>2022-07-1</code>, <code>2022-07-15</code>]. También es posible consultar los costos del día inmediatamente anterior.</em> <br/></li>
+<li><em>Por el momento solo se generan costos mensuales  pero más adelante se generarán  costos cada semana(Solo de Azure).</em></li>
+</ul>
+</li>
+<li><strong>Cost Processor</strong>: Hay un <code>Cost Processor</code> por cada provider de costos, y tiene el objetivo de procesar los costos obtenidos del provider guardarlos en la base de datos. Todos los <code>Cost Processor</code> guardan la información en la misma tabla de la db con el mismo formato. A modo de resumen el procesamiento es encontrar el recurso asociado y el costo total para cada recurso que aparezca en la respuesta del provider.<br/>
+<code>Ejemplo de Tabla de costos</code>:<br/></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Resource Id</th>
+<th>Cost</th>
+<th>Month</th>
+<th>Year</th>
+<th>Week</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Azure</td>
+<td>ObjectId(&ldquo;62cc9c1218d23b62caf89d66&rdquo;)</td>
+<td>1222.12121</td>
+<td>04</td>
+<td>2022</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Rocket</td>
+<td>ObjectId(&ldquo;62cc9c1218d23b62caf89d66&rdquo;)</td>
+<td>1423.232</td>
+<td>04</td>
+<td>2022</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Rocket</td>
+<td>ObjectId(&ldquo;62cc9c1218d23b62caf89d66&rdquo;)</td>
+<td>1011.2121</td>
+<td>04</td>
+<td>2022</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Azure Cost Processor</strong>:<br />
+Para procesar los costos de <code>Azure Cost Management</code> se debe hacer una agrupación ya que los costos vienen segmentados, para calcular el costo de un solo recurso hay que agrupar al menos 6 registros sumando el costos. Para poder determinar qué registros son del mismo recurso se hace uso de expresiones regulares sobre el <code>Resource Id</code> de cada registro en la respuesta de azure.</li>
+</ul>
+<div class="highlight"><span class="filename">Ejemplo de los costos segregados para un mismo recurso</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">       </span><span class="mf">12.8898304</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">       </span><span class="s2">&quot;extensionappservice&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">       </span><span class="s2">&quot;microsoft.compute/virtualmachines&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">       </span><span class="s2">&quot;us central&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">       </span><span class="s2">&quot;subscriptions/b2fd9f8c-0ed5-4f6e-9c93-75ae90718afa/resourcegroups/rgvmtemprdp/providers/microsoft.compute/virtualmachines/alidostech-4&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">       </span><span class="s2">&quot;Bandwidth&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">       </span><span class="s2">&quot;USD&quot;</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">   </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">   </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">       </span><span class="mf">0.016945401057600975</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">       </span><span class="s2">&quot;extensionappservice&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">       </span><span class="s2">&quot;microsoft.web/disks&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">       </span><span class="s2">&quot;us central&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">       </span><span class="s2">&quot;/subscriptions/b2fd9f8c-0ed5-4f6e-9c93-75ae90718afa/resourcegroups/rgvmtemprdp/providers/microsoft.compute/disks/alidostech-4_disk1_63e1110a0cbf410aaa7e374487b1e5d5&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">       </span><span class="s2">&quot;Disks&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">       </span><span class="s2">&quot;USD&quot;</span><span class="w"></span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">   </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">   </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">       </span><span class="mf">0.019006368</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">       </span><span class="s2">&quot;extensionappservice&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">       </span><span class="s2">&quot;microsoft.web/disks&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">       </span><span class="s2">&quot;us central&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">       </span><span class="s2">&quot;/subscriptions/b2fd9f8c-0ed5-4f6e-9c93-75ae90718afa/resourcegroups/rgvmtemprdp/providers/microsoft.compute/disks/alidostech-4_disk2_539ak292a91a374487b1d3992a&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">       </span><span class="s2">&quot;Disks&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">       </span><span class="s2">&quot;USD&quot;</span><span class="w"></span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">   </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">   </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">       </span><span class="mf">0.01767444</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">       </span><span class="s2">&quot;extensionappservice&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">       </span><span class="s2">&quot;microsoft.compute/virtualmachines&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">       </span><span class="s2">&quot;us central&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">       </span><span class="s2">&quot;/subscriptions/b2fd9f8c-0ed5-4f6e-9c93-75ae90718afa/resourcegroups/rgvmtemprdp/providers/microsoft.compute/virtualmachines/alidostech-4/extensions/dependencyagentwindows&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">       </span><span class="s2">&quot;Bandwidth&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">       </span><span class="s2">&quot;USD&quot;</span><span class="w"></span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">   </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">   </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">       </span><span class="mf">0.017733688</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">       </span><span class="s2">&quot;extensionappservice&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">       </span><span class="s2">&quot;microsoft.web/disks&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">       </span><span class="s2">&quot;us central&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">       </span><span class="s2">&quot;/subscriptions/b2fd9f8c-0ed5-4f6e-9c93-75ae90718afa/resourcegroups/rgvmtemprdp/providers/microsoft.compute/disks/alidostech-4_disk3_102kss229ja2ii2299s92as&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">       </span><span class="s2">&quot;Disks&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">       </span><span class="s2">&quot;USD&quot;</span><span class="w"></span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">   </span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="p">]</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>
+<p><strong>Rocket Cost Processor</strong>:<br />
+Procesar los costos de <code>Rocket</code> no es una tarea sencilla  ya que rocket nos da los siguientes datos para identificar cada recurso:</p>
+<ul>
+<li>Resource Name</li>
+<li>Resource Group: <code>extensionappservice</code>, <code>rgsearch</code>, etc.</li>
+<li>Subscription: <code>Qa</code>, <code>Prod</code>, etc.</li>
+<li>Service Name: <code>Storage</code>, <code>Virtual Machine</code>, <code>App Service Plan</code>, etc. <br/></li>
+</ul>
+<p>Como se puede ver no nos da el <code>Resource Type</code>, y sumado a eso hay un problema de ambigüedad en <code>Service Name</code> causado por azure, por ejemplo  varios registros de la respuesta de rocket pueden tener diferentes <code>Service Names</code> y pertenecer al mismo recurso y no hay una forma de determinar cuál es el <code>Service Name</code> real para buscar el recurso en la db, pareciera que este se asigna casi de forma aleatoria. Por esta razón se utiliza la respuesta de <code>Azure Cost Management</code>  del mismo mes, ya que aquí pasa lo mismo hay varios registros con diferentes <code>Service Name</code> para un mismo recurso con la diferencia de que esta le <code>Resource Id</code>, así que se puede buscar el registro equivalente y extraer el Resource Id, para luego agrupar los costos por <code>Resource ID</code>.</p>
+</li>
+</ul>
+<div class="highlight"><span class="filename">Ejemplo de registros de costos asociados al mismo recurso</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">   </span><span class="nt">&quot;resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aks-agentpool-33087089-vmss&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">   </span><span class="nt">&quot;resource_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aks-agentpool-33087089-vmss&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">   </span><span class="nt">&quot;resource_category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Virtual Machines&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">   </span><span class="nt">&quot;parent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mc_rgqaecuaks_qaecuakscluster_eastus2&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">   </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1164.6898642428978</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">   </span><span class="nt">&quot;last_total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1187.6497824401101</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">   </span><span class="nt">&quot;forecast&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1164.6898642428978</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">   </span><span class="nt">&quot;forecast_percentage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">   </span><span class="nt">&quot;invoice_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">   </span><span class="nt">&quot;estimate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">   </span><span class="nt">&quot;usage_issue_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0001-01-01T00:00:00Z&quot;</span><span class="w"></span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">   </span><span class="nt">&quot;resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aks-agentpool-33087089-vmss&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">   </span><span class="nt">&quot;resource_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aks-agentpool-33087089-vmss&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">   </span><span class="nt">&quot;resource_category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bandwidth&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">   </span><span class="nt">&quot;parent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mc_rgqaecuaks_qaecuakscluster_eastus2&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">   </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">19.333820100715656</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">   </span><span class="nt">&quot;last_total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">16.988908387279764</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">   </span><span class="nt">&quot;forecast&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">19.333820100715656</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">   </span><span class="nt">&quot;forecast_percentage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">   </span><span class="nt">&quot;invoice_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">   </span><span class="nt">&quot;estimate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">   </span><span class="nt">&quot;usage_issue_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0001-01-01T00:00:00Z&quot;</span><span class="w"></span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="p">]</span><span class="w"></span>
+</code></pre></div>
+<h3 id="siigo-costs-api">Siigo Costs API<a class="headerlink" href="#siigo-costs-api" title="Permanent link">&para;</a></h3>
+<p><img alt="diagrama arquitectura" src="../img/siigocosts/C2API.png" /></p>
+<p>En este momento solo hay un endpoint, este genera un reporte, en formato  <code>excel</code>, hay que especificar la siguiente información:</p>
+<ul>
+<li><strong>Periods:</strong> Son los periodos que se quieren ver en el reporte, ej:  <code>2022-1</code>,<code>2022-2</code>,<code>2022-3</code>.</li>
+<li><strong>Subscriptions:</strong> Son las suscripciones a las cuales se quiere generar costos ej : <code>b3fd9f1c-0ed5-4f6e-9a93-75ae90718vfa</code>, se generará una hoja de excel para cada sub.</li>
+<li><strong>Providers:</strong> Se puede elegir si bajar los costos que se obtuvieron de <code>azure</code> o <code>rocket</code>, aún no se ha creado una funcionalidad para bajar de ambos al tiempo.</li>
+</ul>
+<p>Al final el reporte generará dos hojas de cálculo por sub, uno con los costos por recurso,   otro por grupo de recursos.</p>
+<h4 id="ejemplo-de-una-peticion-con-curl">Ejemplo de una petición con curl.<a class="headerlink" href="#ejemplo-de-una-peticion-con-curl" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl -X <span class="s1">&#39;POST&#39;</span> <span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a> <span class="s1">&#39;https://apisiigoreports.azurewebsites.net/docs#/default/generate_costs_report_excel_report_post/excel_report&#39;</span> <span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a> -H <span class="s1">&#39;accept: application/json&#39;</span> <span class="se">\</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a> -d <span class="s1">&#39;{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s1"> &quot;periods&quot;: [</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s1">   &quot;1-2022&quot;,&quot;2-2022&quot;,&quot;3-2022&quot;,&quot;4-2022&quot;,&quot;5-2022&quot;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="s1"> ],</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s1"> &quot;subscriptions&quot;: [</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="s1">   &quot;b3fd****-****-****-****-*****8vfa&quot;, &quot;7fef****-****-****-****-**089f788&quot;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="s1"> ],</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="s1"> &quot;providers&quot;: [</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="s1">   &quot;rocket&quot;,&quot;azure&quot;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="s1"> ],</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="s1"> &quot;minimal_cost&quot;: -1</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="s1">}&#39;</span>
+</code></pre></div>
+<h4 id="uso-del-api-desde-la-documentacion">Uso del API desde la Documentacion<a class="headerlink" href="#uso-del-api-desde-la-documentacion" title="Permanent link">&para;</a></h4>
+<p>La documentacion del API esta en el endpoint <a href="https://apisiigoreports.azurewebsites.net/docs#/default/generate_costs_report_excel_report_post/docs" target="_blank"><code>/docs</code></a>
+ del api, desde ahi se puede llamar el api de una forma mas grafica. </p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../kubernetes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kubernetes" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Kubernetes
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../labs_kubernetes/" class="md-footer__link md-footer__link--next" aria-label="Next: Kubernetes" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Kubernetes
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>
